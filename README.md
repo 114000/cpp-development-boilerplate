@@ -1,4 +1,4 @@
-# C++ development boilerplate
+# cpp development boilerplate
 
 `CMake`, `VSCode`
 
@@ -13,14 +13,14 @@
 
 2. .vscode
 
+## Flow
 
-## MacOS
+- debug(VSCode): 
+  - `F5`
 
+- build(VSCode): 
+  - `F1`/`Ctrl + Shift + p`
+  - `CMake: Clean Rebuild`
 
-## debug
-
-`F5`
-
-## build
-
-build
+- run:
+  - `$ ./build/<program:cpp_development_boilerplate>`

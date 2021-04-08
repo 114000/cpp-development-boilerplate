@@ -15,3 +15,12 @@
 
 
 ## MacOS
+
+
+## debug
+
+`F5`
+
+## build
+
+build

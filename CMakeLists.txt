@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0.0)
 
-set(PROJECT_NAME cmake_cpp_boilerplate)
+set(PROJECT_NAME cpp_development_boilerplate)
 
 project(${PROJECT_NAME} VERSION 0.1.0)
 

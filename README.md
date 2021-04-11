@@ -1,37 +1,20 @@
 # cpp development boilerplate
 
-`CMake`, `VSCode`
+- <https://github.com/madduci/docker-cpp-env/blob/master/README.md>
+- <https://medium.com/@aharon.amir/develop-c-on-docker-with-vscode-98fb85b818b2>
+- <https://www.runoob.com/docker/docker-container-usage.html>
 
-## CMake
+``` bash
+# 构建镜像
+$ docker build --tag cpp-dev:latest ./
 
+# 运行容器
+$ docker run -itd \
+         -v /d/learn/cpp_env:/home/develop/project \
+         --name cpp-env-container \
+         cpp-dev
 
-## VSCode
+# 通过容器执行命令
+$ docker exec -it cpp-env-container cat main.cpp
 
-1. install extensions:
-  - CMake
-  - CMake Tools
-
-2. .vscode
-
-## Flow
-
-- configure:
-  - `F1`/`Ctrl + Shift + p`
-  - `CMake: Configure`
-    1. select `create CMakeLists.txt`
-    2. enter `<new project name>`. 
-    3. select `Executable`
-    4. copy `CMakeLists.sample.txt` to `CMakeLists.txt` and keep `<new project name>`
-    5. copy `<new project name>` to `.vscode/launch.json` for debugging
-    6. remove `./main.cpp`, `CMakeLists.sample.txt`
-
-
-- debug(VSCode): 
-  - `F5`. Note: `.vscode/launch.json` for debug compiled file.
-
-- build(VSCode): 
-  - `F1`/`Ctrl + Shift + p`
-  - `CMake: Clean Rebuild`
-
-- run:
-  - `$ ./build/<program:new project name>`
+```

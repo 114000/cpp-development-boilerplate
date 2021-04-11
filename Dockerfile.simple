@@ -1,0 +1,30 @@
+FROM alpine:3.13
+
+RUN echo -e http://mirrors.ustc.edu.cn/alpine/v3.13/main/ > /etc/apk/repositories
+
+WORKDIR /project
+
+RUN apk update && \
+    apk upgrade
+
+RUN apk --update add \
+      gcc \
+      g++ \
+      cmake \
+      gdb \
+      gdbserver
+
+COPY ./ /project
+
+RUN cd /project
+
+RUN g++ -o main.out ./main.cpp
+
+
+
+CMD [ "./main.out" ]
+
+
+
+
+EXPOSE 9083

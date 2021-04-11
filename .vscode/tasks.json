@@ -1,0 +1,33 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "clear cpp dev env",
+      "type": "shell",
+      "command": "docker stop cpp-env-container && docker rm cpp-env-container && docker rmi cpp-dev:latest"
+    },
+    {
+      "label": "build cpp dev env",
+      "type": "shell",
+      "command": "docker build --tag cpp-dev:latest ./"
+    },
+    {
+      "label": "restart cpp dev env",
+      "dependsOn": [ "clear cpp dev env", "build cpp dev env" ]
+    },
+    {
+      "label": "run cpp dev env",
+      "type": "shell",
+      "command": "docker run -itd -v /d/learn/cpp_env:/home/develop/project --name cpp-env-container cpp-dev"
+    },
+    {
+      "label": "compile main func",
+      "type": "shell",
+      // ctrl + shift + b
+      "group": "build",
+      "command": "docker exec -it cpp-env-container g++ main.cpp && docker exec -it cpp-env-container ./a.out"
+    }
+  ]
+}
